@@ -16,6 +16,7 @@ class CreateKnjigaTable extends Migration
         Schema::create('knjiga', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('author');
             $table->timestamps();
         });
     }
