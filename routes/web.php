@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PismoController;
+use App\Http\Controllers\PovezController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +28,5 @@ Route::post('/pismo-save',[PismoController::class,'save'])->name('pismo.save');
 Route::get('/pismo/{id}',[PismoController::class,'delete'])->name('pismo.delete');
 Route::get('/pismo-edit/{id}',[PismoController::class,'edit'])->name('pismo.edit');
 Route::post('/pismo-update',[PismoController::class,'update'])->name('pismo.update');
-
+Route::resource('povez', PovezController::class);
 

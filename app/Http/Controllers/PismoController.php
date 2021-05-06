@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PismoRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class PismoController extends Controller
@@ -11,13 +12,12 @@ class PismoController extends Controller
         $pisma=DB::table('pismo')->get();
         return view('pismo.index',["pisma"=>$pisma]);
     }
+
     public function create(){
-    return view('pismo.create');
+        return view('pismo.create');
     }
-    public function save(Request $request){
-        $request->validate([
-        'nazivPismo'=>'required'
-        ]);
+    public function save(PismoRequest $request){
+
         $pismo=DB::table('pismo')->insert([
             'Naziv'=>$request->post('nazivPismo')
         ]);
